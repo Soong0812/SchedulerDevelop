@@ -20,7 +20,8 @@ public class UserService {
     public UserResponse createUser(UserRequest request) {
         User user = new User(
                 request.getEmail(),
-                request.getUserName()
+                request.getUserName(),
+                request.getPassword()
         );
         User saved = userRepository.save(user);
         return new UserResponse(saved);
@@ -47,7 +48,7 @@ public class UserService {
         User user = userRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 유저가 없습니다.")
         );
-        user.update(request.getEmail(),  request.getUserName());
+        user.update(request.getEmail(), request.getUserName());
         return new UserResponse(user);
     }
 
