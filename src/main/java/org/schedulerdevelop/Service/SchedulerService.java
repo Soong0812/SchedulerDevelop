@@ -18,7 +18,7 @@ public class SchedulerService {
     @Transactional
     public SchedulerResponse createSchedule(SchedulerRequest request) {
         Scheduler scheduler = new Scheduler(
-                request.getName(),
+                request.getUserId(),
                 request.getTitle(),
                 request.getContent()
         );
