@@ -17,11 +17,13 @@ public class Scheduler extends BaseEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(nullable = false)
     private String title;
+
     private String content;
 
     public Scheduler(User user, String title, String content) {
-        this.user = user();
+        this.user = user;
         this.title = title;
         this.content = content;
     }
