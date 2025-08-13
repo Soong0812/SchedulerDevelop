@@ -65,7 +65,7 @@ org.schedulerdevelop
    
 ## API 명세
 
-1. 유저 API
+#1. 유저 API
    
 기능	          |HTTP Method |	URL    |	                Request Body                  |   Response
 
@@ -85,7 +85,7 @@ org.schedulerdevelop
 
 사용자 삭제	      |   DELETE   |/user/{id} |	-	                                          | 204 No Content
 
-2. 일정 API
+#2. 일정 API
 
 기능	          |HTTP Method |	URL    |	                Request Body                  |   Response
 
@@ -99,7 +99,7 @@ org.schedulerdevelop
 
 일정 삭제	      |   DELETE   | /scheduler/{scheduleId} |	  -	                                         | 200 OK
 
-3. 예외 처리
+#3. 예외 처리
    - 유저 없음 : "해당 유저가 없습니다."
    - 일정 없음 : "해당 일정이 없습니다."
    - 로그인 필요 : "로그인 해주세요."
