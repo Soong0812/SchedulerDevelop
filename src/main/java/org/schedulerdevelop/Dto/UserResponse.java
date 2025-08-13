@@ -3,7 +3,6 @@ package org.schedulerdevelop.Dto;
 import lombok.Getter;
 import org.schedulerdevelop.Entity.User;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter

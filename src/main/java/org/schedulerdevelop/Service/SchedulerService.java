@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.schedulerdevelop.Dto.SchedulerResponse;
 import org.schedulerdevelop.Dto.SchedulerRequest;
 import org.schedulerdevelop.Entity.Scheduler;
+import org.schedulerdevelop.Entity.User;
 import org.schedulerdevelop.Repository.SchedulerRepository;
+import org.schedulerdevelop.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,11 +16,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchedulerService {
     private final SchedulerRepository schedulerRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public SchedulerResponse createSchedule(SchedulerRequest request) {
+        User user = userRepository.findById(request.getUserId()).orElseThrow(
+                () -> new IllegalArgumentException("해당 유저가 없습니다.")
+        );
+
         Scheduler scheduler = new Scheduler(
-                request.getUserId(),
+                user,
                 request.getTitle(),
                 request.getContent()
         );

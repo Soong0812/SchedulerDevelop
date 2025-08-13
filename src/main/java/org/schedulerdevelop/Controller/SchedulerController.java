@@ -17,35 +17,36 @@ public class SchedulerController {
 
     @PostMapping("/scheduler")
     public ResponseEntity<SchedulerResponse> createSchedule(
-            @RequestBody SchedulerRequest request){
+            @RequestBody SchedulerRequest request
+    ) {
         return ResponseEntity.ok(schedulerService.createSchedule(request));
     }
 
     @GetMapping("/scheduler")
-    public ResponseEntity<List<SchedulerResponse>> getAllSchedule() {
+    public ResponseEntity<List<SchedulerResponse>> getAllSchedules() {
         return ResponseEntity.ok(schedulerService.getAllSchedules());
     }
 
-    @GetMapping("/scheduler/{id}")
+    @GetMapping("/scheduler/{scheduleId}")
     public ResponseEntity<SchedulerResponse> getScheduleById(
-            @PathVariable Long id
+            @PathVariable Long scheduleId
     ) {
-        return ResponseEntity.ok(schedulerService.getScheduleById(id));
+        return ResponseEntity.ok(schedulerService.getScheduleById(scheduleId));
     }
 
-    @PutMapping("/scheduler/{id}")
+    @PutMapping("/scheduler/{scheduleId}")
     public ResponseEntity<SchedulerResponse> updateSchedule(
-            @PathVariable Long id,
+            @PathVariable Long scheduleId,
             @RequestBody SchedulerRequest request
     ) {
-        return ResponseEntity.ok(schedulerService.updateSchedule(id, request));
+        return ResponseEntity.ok(schedulerService.updateSchedule(scheduleId, request));
     }
 
-    @DeleteMapping("/scheduler/{id}")
+    @DeleteMapping("/scheduler/{scheduleId}")
     public ResponseEntity<Void>  deleteSchedule(
-            @PathVariable Long id
+            @PathVariable Long scheduleId
     ) {
-        schedulerService.deleteSchedule(id);
+        schedulerService.deleteSchedule(scheduleId);
         return ResponseEntity.ok().build();
     }
 
